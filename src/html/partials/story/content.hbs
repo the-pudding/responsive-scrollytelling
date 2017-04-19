@@ -5,10 +5,10 @@ I recently wrote an article about <a href='https://pudding.cool/process/how-to-i
 <h2 class='subhed tk-atlas'>When do you start on mobile?</h2>
 
 <p>
-First. Or second. It doesn’t matter, as long as you plan it out, ideally from the get-go. Keep in mind that by “mobile” here, I mostly mean browser size, although it can sometimes mean other things, like touch events, crappy internet, or Alabama.
+First. Or second. It doesn’t matter as long as you plan it out, ideally from the get-go. Keep in mind that by “mobile” here, I mostly mean browser size, although it can sometimes mean other things, like touch events, crappy internet, or Alabama.
 </p>
 <p>
-<strong>The main advantage of starting with mobile first is that it forces you to pare down your experience to the nuts and bolts</strong>, leaving only the necessities. This refines and focuses the content, which can be a helpful exercise in and of itself. Starting with mobile can also make improve development time and efficiency. If the experience functionally the same on desktop, you do not need much additional code. By framing the story around mobile, you can view desktop as the enhanced version, that you can soup up like a car from Fast and Furious. Think additive, not subtractive.
+<strong>The main advantage of starting with mobile first is that it forces you to pare down your experience to the nuts and bolts</strong>, leaving only the necessities. This refines and focuses the content, which can be a helpful exercise in and of itself. Starting with mobile can also improve development time and efficiency. If the experience is functionally the same on desktop, you do not need much additional code. By framing the story and development around mobile, you can view desktop as the enhanced version, that you can soup up like a car from Fast and Furious.
 </p>
 <p>
 But life is short. Sometimes it is more exciting to dream big and think desktop first. <strong>By restricting yourself to a mobile thought process, you might lose out on some cool concepts in the brainstorm phase</strong>. And while there are certainly fantastic interactives on mobile (sometimes even better than on desktop), I’ll never turn down more pixels to work with. There is no shame in this approach, as long as you have a plan for how your interactive scales down.
@@ -17,7 +17,7 @@ But life is short. Sometimes it is more exciting to dream big and think desktop 
 
 <h2 class='subhed tk-atlas'>To scroll or stack?</h2>
 <p>
-Once you commmit to scrollytelling, you have two mobile choices; keep it scrolly, or stack it. Keeping it scrolly preserves the most similar experience for all users. You might have to eliminate some flair or reduce complexity, but it will generally behave the same way. <strong>The most important reason to preserve the scroll is if the transitions are truly meaningful, and not just something to make it pop</strong>. Seeing change over time or spatial movement are some good justifications for this. <a href='https://pudding.cool/2017/01/making-it-big/' target='_blank'>Here</a> <a href='https://ig.ft.com/sites/special-reports/one-belt-one-road/' target='_blank'>are</a> <a href='https://www.nytimes.com/interactive/2016/11/29/us/trump-unauthorized-immigrants.html' target='_blank'>some</a> examples of keeping it scrolly.
+Once you commmit to scrollytelling, you have two mobile choices: keep it scrolly, or stack it. Keeping it scrolly preserves the most similar experience for all users. You might have to eliminate some flair or reduce complexity, but it will generally behave the same way. <strong>The most important reason to preserve the scroll is if the transitions are truly meaningful, and not just something to make it pop</strong>. Seeing change over time or spatial movement are some good justifications for this. <a href='https://pudding.cool/2017/01/making-it-big/' target='_blank'>Here</a> <a href='https://ig.ft.com/sites/special-reports/one-belt-one-road/' target='_blank'>are</a> <a href='https://www.nytimes.com/interactive/2016/11/29/us/trump-unauthorized-immigrants.html' target='_blank'>some</a> examples of keeping it scrolly.
 </p>
 <div class='video-container'>
 	<video src='assets/video/scrolly-c.mp4' muted preload autoplay loop playsinline></video>
@@ -48,7 +48,7 @@ But sometimes doing a series of stacked charts is the way to go. This method mig
 Now that we’ve covered some high-level stuff, I want to share a few disparate thoughts, technical and otherwise, that I’ve accumulated after producing a handful of scrolly stories.
 </p>
 <p>
-I love using the css unit <strong>vh</strong> (viewport. If you haven’t used it, 100vh would mean full viewport height, which automatically adjusts with resize. It is awesome, and something that you used need JavaScript for. That being said, <strong>don’t use vh for scrollytelling</strong>. Mobile browsers toggle the navbar whether you are scrolling up or down.
+I love using the css unit <strong>vh</strong> (viewport height). If you haven’t used it, 100vh would mean full viewport height, which automatically adjusts with resize. It is awesome, and something that you used need JavaScript to do. That being said, <strong>don’t use vh for scrollytelling</strong>. Mobile browsers toggle the top and bottom navbars’ position and sizes whether you are scrolling up or down.
 </p>
 <div class='video-container'>
 	<video src='assets/video/vh.mp4' muted preload autoplay loop playsinline></video>
