@@ -33,6 +33,7 @@
     "gulp-stylus": "^2.5.0",
     "gulp-util": "^3.0.7",
     "lodash.debounce": "^4.0.8",
+    "prismjs": "^1.6.0",
     "promis": "^1.1.4",
     "request": "^2.81.0",
     "require-dir": "^0.3.0",

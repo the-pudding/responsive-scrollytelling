@@ -57,12 +57,28 @@ main ul
 	
 .video-container
 	max-width 50rem
-	margin 3rem auto
-	// height 100%
-	// overflow hidden
+	margin 4rem auto
 	display flex
 	align-items center
+	justify-content space-around
+	filter grayscale(100%)
+	opacity 0.5
+	cursor pointer
+	transition all 250ms ease-in-out
+	&:hover 
+		filter grayscale(0%)
+		opacity 1
 	video
-		width 33.3%
-		// display inline-block
-		// float left
+		width 33%
+		border 1px solid $gray-light
+		display none
+		margin 0.3%
+		+mq('bp-3')
+			display block
+		&:first-child
+			display block
+
+.code-container
+	max-width 50rem
+	margin 4rem auto
+	font-size 0.9rem
