@@ -1,0 +1,68 @@
+fontify($canela, $canela-hash, $serif)
+fontify($publico, $publico-hash, $serif)
+fontify($atlas, $atlas-hash, $sans)
+
+html, body
+	background-color #fff
+	color $off-black
+	font-size 17px
+
+p 
+	font-size 1.1rem
+	line-height 1.8
+	color $gray-dark
+	max-width 40rem
+	margin 1rem auto 2rem auto
+	&.no-margin
+		margin-bottom 1rem
+
+a
+	text-decoration none
+	border-bottom 2px solid $primary
+	color $off-black
+
+.intro
+	max-width 40rem
+	margin 0 auto
+.intro__hed
+	font-weight 700
+	font-size 2rem
+
+.intro__meta
+	display none
+	display flex
+	justify-content space-between
+	p 
+		font-size 0.9rem
+	
+main 
+	padding 1rem
+	margin 0 auto
+
+.subhed
+	font-weight 700
+	font-size 1.3rem
+	margin-top 3rem
+	max-width 40rem
+	margin 3rem auto 0 auto
+	
+main ul
+	max-width 40rem
+	margin 0 auto
+	li
+		font-size 1.1rem
+		line-height 1.7
+		list-style-type circle
+		margin-left 1rem
+	
+.video-container
+	max-width 50rem
+	margin 3rem auto
+	// height 100%
+	// overflow hidden
+	display flex
+	align-items center
+	video
+		width 33.3%
+		// display inline-block
+		// float left

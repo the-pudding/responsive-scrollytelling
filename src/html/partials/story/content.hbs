@@ -1,0 +1,80 @@
+<p>
+I recently wrote an article about <a href='https://pudding.cool/process/how-to-implement-scrollytelling/' target='_blank'>how to implement scrollytelling with six different libraries</a>. In this post, we will discuss all things mobile; from planning, to choices, to lessons learned. Let’s get the elephant in the room out of the way first.
+</p>
+
+<h2 class='subhed tk-atlas'>When do you start on mobile?</h2>
+
+<p>
+First. Or second. It doesn’t matter, as long as you plan it out, ideally from the get-go. Keep in mind that by “mobile” here, I mostly mean browser size, although it can sometimes mean other things, like touch events, crappy internet, or Alabama.
+</p>
+<p>
+<strong>The main advantage of starting with mobile first is that it forces you to pare down your experience to the nuts and bolts</strong>, leaving only the necessities. This refines and focuses the content, which can be a helpful exercise in and of itself. Starting with mobile can also make improve development time and efficiency. If the experience functionally the same on desktop, you do not need much additional code. By framing the story around mobile, you can view desktop as the enhanced version, that you can soup up like a car from Fast and Furious. Think additive, not subtractive.
+</p>
+<p>
+But life is short. Sometimes it is more exciting to dream big and think desktop first. <strong>By restricting yourself to a mobile thought process, you might lose out on some cool concepts in the brainstorm phase</strong>. And while there are certainly fantastic interactives on mobile (sometimes even better than on desktop), I’ll never turn down more pixels to work with. There is no shame in this approach, as long as you have a plan for how your interactive scales down.
+</p>
+<p>
+
+<h2 class='subhed tk-atlas'>To scroll or stack?</h2>
+<p>
+Once you commmit to scrollytelling, you have two mobile choices; keep it scrolly, or stack it. Keeping it scrolly preserves the most similar experience for all users. You might have to eliminate some flair or reduce complexity, but it will generally behave the same way. <strong>The most important reason to preserve the scroll is if the transitions are truly meaningful, and not just something to make it pop</strong>. Seeing change over time or spatial movement are some good justifications for this. <a href='https://pudding.cool/2017/01/making-it-big/' target='_blank'>Here</a> <a href='https://ig.ft.com/sites/special-reports/one-belt-one-road/' target='_blank'>are</a> <a href='https://www.nytimes.com/interactive/2016/11/29/us/trump-unauthorized-immigrants.html' target='_blank'>some</a> examples of keeping it scrolly.
+</p>
+<div class='video-container'>
+	<video src='assets/video/scrolly-a.mp4' preload autoplay loop></video>
+	<video src='assets/video/scrolly-b.mp4' preload autoplay loop></video>
+	<video src='assets/video/scrolly-c.mp4' preload autoplay loop></video>
+</div>
+<p class='no-margin'>
+But sometimes doing a series of stacked charts is the way to go. This method might be a better mobile solution if...
+</p>
+<ul>
+	<li>Performance could suffer if you have lot of animations and transitions.</li>
+	<li>The steps could be equally if not better understood as standalone charts.</li>
+	<li>You might need an entirely different type of chart to fit or work on mobile (eg. inline videos don't work on pre-10 iOS).</li>
+	<li>Development time might be your driving force, and a static chart or image can be downright quicker to code and debug on deadline.</li>
+</ul>
+<p>
+<a href='https://www.nytimes.com/interactive/2016/09/25/us/charlotte-scott-shooting-video.html' target='_blank'>Here</a> <a href='https://www.washingtonpost.com/graphics/sports/olympics/the-1000-medals-of-the-united-states/' target='_blank'>are</a> <a href='https://apps.bostonglobe.com/spotlight/clash-in-the-name-of-care/story/' target='_blank'>some</a> examples of stacking on mobile.
+</p>
+
+<div class='video-container'>
+	<video src='assets/video/stack-a.mp4' preload autoplay loop></video>
+	<video src='assets/video/stack-b.mp4' preload autoplay loop></video>
+	<video src='assets/video/stack-c.mp4' preload autoplay loop></video>
+</div>
+<h2 class='subhed tk-atlas'>Best practices</h2>
+
+<p>
+Now that we’ve covered some high-level stuff, I want to share a few disparate thoughts, technical and otherwise, that I’ve accumulated after producing a handful of scrolly stories.
+</p>
+<p>
+I love using the css unit <strong>vh</strong> (viewport. If you haven’t used it, 100vh would mean full viewport height, which automatically adjusts with resize. It is awesome, and something that you used need JavaScript for. That being said, <strong>don’t use vh for scrollytelling</strong>. Mobile browsers toggle the navbar whether you are scrolling up or down.
+</p>
+<p>[Image tk]</p>
+<p>
+This causes the viewport height to change, and will mess with your scroll triggers and make things a little janky. Instead, you should use <strong>px</strong> values that you calculate from <strong>window.innerHeight</strong> on load/resize in JavaScript. 
+</p>
+<p>[Code tk]</p>
+</p>
+<p>
+I mentioned it earlier, but there are many ways to differentiate between mobile and desktop. I have personally only needed two approaches to handle these situations. The first is browser size. A lot of responsive scrollytelling is done in the CSS with media queries, but since you will also be doing things on the JavaScript end, you will want to keep them in sync. My favorite method is to use the <strong>matchMedia</strong> function on load/resize.
+</p>
+<p>[Code tk]</p>
+<p>
+If you are looking for mobile features, you can use something like <a href='https://modernizr.com/' target='_blank'>Modernizr</a>, or do some <a href='https://github.com/polygraph-cool/starter/blob/master/src/js/utils/is-mobile.js' target='_blank'>device-sniffing</a> which works good enough. I’ll usually add a class to the html tag so the CSS can get in on the action.
+</p>
+<p>[Code tk]</p>
+
+<p>Separate all your chart setup and chart drawing functionality. This is good practice to begin with, but is necessary with a responsive graphic. This way on resize, you can simple update your charts rather than build them from scratch. Here is a basic boilerplate of how I approach this: 
+</p>
+<p>[Code tk]</p>
+<p>
+Remember to consider how all your mouse interactions will function on mobile. Try to either limit the interactions or make them part of UI elements so it is clear where they will be required. Otherwise, inadvertent interactions may happen while the user is simply trying to scroll. A good example of this is hover events. I prefer to remove them and replace with some fixed text or annotation.
+</p>
+<p>
+Pacing is important. While not specifically a responsive topic, it has different effects on different screens. Something might seem fine on desktop, but then may be fatiguing or tiresome on mobile. I err on the side of short and sweet. A few steps to grab the user and make your point and then you’re out. The reason for this is explained brilliantly in <a href='https://www.youtube.com/watch?v=Z4tB6qyxHJA' target='_blank'>Tony Chu’s OpenVis talk</a>.
+</p>
+<h2 class='subhed tk-atlas'>Go forth and scroll</h2>
+<p>
+Hopefully you are now equipped to make (or justify) the best scrollytelling decisions. I’m sure there is a lot more that I am leaving out or I have left unanswered. Hit me up on Twitter at <a href='https://twitter.com/codenberg' target='_blank'>@codenberg</a>.
+</p>
