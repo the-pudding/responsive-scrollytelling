@@ -28,12 +28,16 @@ a
 .intro__hed
 	font-weight 700
 	font-size 2rem
+	line-height 1.2
+	+mq('bp-2')
+		font-size 3.5rem
 
 .intro__meta
-	display none
 	display flex
+	margin 1rem 0 4rem 0
 	justify-content space-between
 	p 
+		margin 0
 		font-size 0.9rem
 	
 main 
@@ -71,11 +75,12 @@ main ul
 		filter grayscale(0%)
 		opacity 1
 	video
-		width 33%
+		width 66%
 		border 1px solid $gray-light
 		display none
 		margin 0.3%
 		+mq('bp-3')
+			width 33%
 			display block
 		&:first-child
 			display block
